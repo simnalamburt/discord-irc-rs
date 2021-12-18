@@ -7,17 +7,19 @@ A Discord to IRC and vice-versa bridge bot written in Rust.
 Requires 1.39+ version of rustc.
 
 ```bash
-$ cp sample.toml config.toml
+cp sample.toml config.toml
 # Edit config.toml ...
-$ RUST_LOG=info cargo run -- config.toml
+
+RUST_LOG=info cargo run -- config.toml
 ```
 
-OR
+You can also run discord-irc-rs with Docker.
 
 ```bash
-$ cp sample.toml config.toml
-# Edit config.toml ...
-$ docker run --rm -it -e RUST_LOG=info -v $PWD/config.toml:/config.toml pbzweihander/discord-irc-rs
+# If config.toml is located at /YOUR/PATH/TO/CONFIG
+docker run -d --restart=always \
+  --mount type=bind,source=/YOUR/PATH/TO/CONFIG,target=/a \
+  ghcr.io/simnalamburt/discord-irc-rs
 ```
 
 ------
